@@ -1,6 +1,6 @@
 {
   "name": "@edunext/frontend-lib-special-exams",
-  "version": "1.15.0-alpha-04",
+  "version": "1.15.0-alpha.5",
   "description": "Special exams lib",
   "main": "dist/index.js",
   "release": {
@@ -55,8 +55,8 @@
     "@edx/paragon": "^19.4.1 || ^20.22.4 || >21.0.0-alpha.01",
     "@reduxjs/toolkit": "^1.5.1",
     "prop-types": "^15.7.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
     "react-redux": "^7.1.3",
     "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2",
@@ -64,7 +64,7 @@
   },
   "devDependencies": {
     "@edx/frontend-build": "github:edunext/frontend-build#ednx-release/css-variables",
-    "@edx/frontend-platform": "@edunext/frontend-platform@3.7.0-alpha.10",
+    "@edx/frontend-platform": "npm:@edunext/frontend-platform@3.7.0-alpha.10",
     "@edx/paragon": "^22.0.0-alpha.13",
     "@edx/reactifex": "^2.1.1",
     "@reduxjs/toolkit": "^1.5.1",
@@ -77,8 +77,8 @@
     "husky": "3.1.0",
     "jest": "25.4.0",
     "prop-types": "15.7.2",
-    "react": "16.12.0",
-    "react-dom": "16.12.0",
+    "react": "16.14.0",
+    "react-dom": "16.14.0",
     "react-intl": "^5.25.0",
     "react-redux": "^7.2.9",
     "react-router": "5.1.2",
