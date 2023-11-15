@@ -1,6 +1,6 @@
 {
-  "name": "@edx/frontend-lib-special-exams",
-  "version": "1.14.0",
+  "name": "@edunext/frontend-lib-special-exams",
+  "version": "1.15.0-alpha-04",
   "description": "Special exams lib",
   "main": "dist/index.js",
   "release": {
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/edx/frontend-lib-special-exams.git"
+    "url": "git+https://github.com/edunext/frontend-lib-special-exams.git"
   },
   "publishConfig": {
     "access": "public"
@@ -38,9 +38,9 @@
     }
   },
   "license": "AGPL-3.0",
-  "homepage": "https://github.com/edx/frontend-lib-special-exams",
+  "homepage": "https://github.com/edunext/frontend-lib-special-exams",
   "bugs": {
-    "url": "https://github.com/edx/frontend-lib-special-exams/issues"
+    "url": "https://github.com/edunext/frontend-lib-special-exams/issues"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "1.2.34",
@@ -52,8 +52,7 @@
     "eventemitter3": "^4.0.7"
   },
   "peerDependencies": {
-    "@edx/frontend-platform": "^4.2.0",
-    "@edx/paragon": "^19.4.1 || ^20.22.4",
+    "@edx/paragon": "^19.4.1 || ^20.22.4 || >21.0.0-alpha.01",
     "@reduxjs/toolkit": "^1.5.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
@@ -64,9 +63,9 @@
     "redux": "^4.0.5"
   },
   "devDependencies": {
-    "@edx/frontend-build": "^5.6.11",
-    "@edx/frontend-platform": "^4.2.0",
-    "@edx/paragon": "^20.22.4",
+    "@edx/frontend-build": "github:edunext/frontend-build#ednx-release/css-variables",
+    "@edx/frontend-platform": "@edunext/frontend-platform@3.7.0-alpha.10",
+    "@edx/paragon": "^22.0.0-alpha.13",
     "@edx/reactifex": "^2.1.1",
     "@reduxjs/toolkit": "^1.5.1",
     "@testing-library/dom": "7.16.3",
