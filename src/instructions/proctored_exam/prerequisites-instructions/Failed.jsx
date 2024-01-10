@@ -45,7 +45,7 @@ const FailedPrerequisitesProctoredExamInstructions = (props) => {
       <p>
         <FormattedMessage
           id="exam.FailedPrerequisitesProctoredExamInstructions.text3"
-          defaultMessage={'If you have questions about the status of your requirements, contact {platformName} Support.'}
+          defaultMessage="If you have questions about the status of your requirements, contact {platformName} Support."
           values={{ platformName }}
         />
       </p>
@@ -55,7 +55,7 @@ const FailedPrerequisitesProctoredExamInstructions = (props) => {
 
 FailedPrerequisitesProctoredExamInstructions.propTypes = {
   allowProctoringOptOut: PropTypes.bool.isRequired,
-  prerequisites: PropTypes.arrayOf(PropTypes.object).isRequired,
+  prerequisites: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   platformName: PropTypes.string.isRequired,
   skipProctoredExam: PropTypes.func.isRequired,
 };

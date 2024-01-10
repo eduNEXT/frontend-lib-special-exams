@@ -1,6 +1,6 @@
 {
-  "name": "@edx/frontend-lib-special-exams",
-  "version": "1.14.0",
+  "name": "@edunext/frontend-lib-special-exams",
+  "version": "2.0.0-alpha.2",
   "description": "Special exams lib",
   "main": "dist/index.js",
   "release": {
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/edx/frontend-lib-special-exams.git"
+    "url": "git+https://github.com/edunext/frontend-lib-special-exams.git"
   },
   "publishConfig": {
     "access": "public"
@@ -29,8 +29,10 @@
     "i18n_extract": "BABEL_ENV=i18n fedx-scripts babel src --quiet > /dev/null",
     "is-es5": "es-check es5 ./dist/*.js",
     "lint": "fedx-scripts eslint --ext .js --ext .jsx .",
+    "lint:fix": "fedx-scripts eslint --fix --ext .js --ext .jsx .",
     "snapshot": "fedx-scripts jest --updateSnapshot",
-    "test": "fedx-scripts jest --coverage --passWithNoTests"
+    "test": "fedx-scripts jest --coverage --passWithNoTests",
+    "replace-variables": "paragon replace-variables -p src -t usage"
   },
   "husky": {
     "hooks": {
@@ -52,8 +54,8 @@
     "eventemitter3": "^4.0.7"
   },
   "peerDependencies": {
-    "@edx/frontend-platform": "^2.3.0",
-    "@edx/paragon": "^19.14.1",
+    "@edx/frontend-platform": "^2.3.0 || >3.3.0-alpha.1" ,
+    "@edx/paragon": ">= 7.0.0 < 20.0.0 || >= 22.0.0-alpha.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -64,9 +66,9 @@
     "@reduxjs/toolkit": "^1.5.1"
   },
   "devDependencies": {
-    "@edx/frontend-build": "^5.6.11",
-    "@edx/frontend-platform": "^2.3.0",
-    "@edx/paragon": "19.14.1",
+    "@edx/frontend-build": "github:edunext/frontend-build#ednx-release/css-variables-12",
+    "@edx/frontend-platform": "npm:@edunext/frontend-platform@3.3.0-alpha.2",
+    "@edx/paragon": "22.0.0-alpha.13",
     "@testing-library/dom": "7.16.3",
     "@testing-library/jest-dom": "5.10.1",
     "@testing-library/react": "10.3.0",

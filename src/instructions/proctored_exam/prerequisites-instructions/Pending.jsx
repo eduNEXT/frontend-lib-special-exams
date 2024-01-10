@@ -9,8 +9,8 @@ const PendingPrerequisitesProctoredExamInstructions = ({ allowProctoringOptOut, 
       <FormattedMessage
         id="exam.PendingPrerequisitesProctoredExamInstructions.text1"
         defaultMessage={'You have not completed the prerequisites for '
-        + 'this exam. All requirements must be satisfied before you '
-        + 'can take this proctored exam.'}
+          + 'this exam. All requirements must be satisfied before you '
+          + 'can take this proctored exam.'}
       />
     </p>
     <p>
@@ -44,7 +44,7 @@ const PendingPrerequisitesProctoredExamInstructions = ({ allowProctoringOptOut, 
       <FormattedMessage
         id="exam.PendingPrerequisitesProctoredExamInstructions.text5"
         defaultMessage={'You can take this exam with proctoring only '
-        + 'when all prerequisites-instructions have been successfully completed.'}
+          + 'when all prerequisites-instructions have been successfully completed.'}
       />
     </p>
     {allowProctoringOptOut && <SkipProctoredExamButton handleClick={skipProctoredExam} />}
@@ -53,7 +53,7 @@ const PendingPrerequisitesProctoredExamInstructions = ({ allowProctoringOptOut, 
 
 PendingPrerequisitesProctoredExamInstructions.propTypes = {
   allowProctoringOptOut: PropTypes.bool.isRequired,
-  prerequisites: PropTypes.arrayOf(PropTypes.object).isRequired,
+  prerequisites: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   skipProctoredExam: PropTypes.func.isRequired,
 };
 

@@ -112,9 +112,7 @@ export function startTimedExam() {
       );
       return;
     }
-    await updateAttemptAfter(
-      exam.course_id, exam.content_id, createExamAttempt(exam.id),
-    )(dispatch);
+    await updateAttemptAfter(exam.course_id, exam.content_id, createExamAttempt(exam.id))(dispatch);
   };
 }
 
@@ -125,9 +123,7 @@ export function createProctoredExamAttempt() {
       logError('Failed to create exam attempt. No exam id.');
       return;
     }
-    await updateAttemptAfter(
-      exam.course_id, exam.content_id, createExamAttempt(exam.id, false, true),
-    )(dispatch);
+    await updateAttemptAfter(exam.course_id, exam.content_id, createExamAttempt(exam.id, false, true))(dispatch);
   };
 }
 
@@ -149,9 +145,7 @@ export function startProctoredExam() {
       const startExamTimeoutMilliseconds = EXAM_START_TIMEOUT_MILLISECONDS;
       workerPromiseForEventNames(actionToMessageTypesMap.start, exam.attempt.desktop_application_js_url)(
         startExamTimeoutMilliseconds,
-      ).then(() => updateAttemptAfter(
-        exam.course_id, exam.content_id, continueAttempt(attempt.attempt_id),
-      )(dispatch))
+      ).then(() => updateAttemptAfter(exam.course_id, exam.content_id, continueAttempt(attempt.attempt_id))(dispatch))
         .catch(error => {
           const message = error?.message || 'Worker failed to respond.';
           logError(
@@ -169,9 +163,7 @@ export function startProctoredExam() {
           );
         });
     } else {
-      await updateAttemptAfter(
-        exam.course_id, exam.content_id, continueAttempt(attempt.attempt_id),
-      )(dispatch);
+      await updateAttemptAfter(exam.course_id, exam.content_id, continueAttempt(attempt.attempt_id))(dispatch);
     }
   };
 }
@@ -185,13 +177,9 @@ export function skipProctoringExam() {
     }
     const attemptId = exam.attempt.attempt_id;
     if (attemptId) {
-      await updateAttemptAfter(
-        exam.course_id, exam.content_id, declineAttempt(attemptId),
-      )(dispatch);
+      await updateAttemptAfter(exam.course_id, exam.content_id, declineAttempt(attemptId))(dispatch);
     } else {
-      await updateAttemptAfter(
-        exam.course_id, exam.content_id, createExamAttempt(exam.id, true, false),
-      )(dispatch);
+      await updateAttemptAfter(exam.course_id, exam.content_id, createExamAttempt(exam.id, true, false))(dispatch);
     }
   };
 }
@@ -256,9 +244,7 @@ export function stopExam() {
       return;
     }
 
-    await updateAttemptAfter(
-      exam.course_id, exam.content_id, stopAttempt(attemptId),
-    )(dispatch);
+    await updateAttemptAfter(exam.course_id, exam.content_id, stopAttempt(attemptId))(dispatch);
   };
 }
 
@@ -274,9 +260,7 @@ export function continueExam() {
       );
       return;
     }
-    await updateAttemptAfter(
-      exam.course_id, exam.content_id, continueAttempt(attemptId),
-    )(dispatch);
+    await updateAttemptAfter(exam.course_id, exam.content_id, continueAttempt(attemptId))(dispatch);
   };
 }
 
@@ -292,9 +276,7 @@ export function resetExam() {
       );
       return;
     }
-    await updateAttemptAfter(
-      exam.course_id, exam.content_id, resetAttempt(attemptId),
-    )(dispatch);
+    await updateAttemptAfter(exam.course_id, exam.content_id, resetAttempt(attemptId))(dispatch);
   };
 }
 
@@ -357,9 +339,7 @@ export function expireExam() {
       return;
     }
 
-    await updateAttemptAfter(
-      activeAttempt.course_id, exam.content_id, submitAttempt(attemptId),
-    )(dispatch);
+    await updateAttemptAfter(activeAttempt.course_id, exam.content_id, submitAttempt(attemptId))(dispatch);
     dispatch(expireExamAttempt());
 
     if (useWorker) {
@@ -398,7 +378,9 @@ export function pingAttempt(timeoutInSeconds, workerUrl) {
           },
         );
         await updateAttemptAfter(
-          exam.course_id, exam.content_id, endExamWithFailure(activeAttempt.attempt_id, message),
+          exam.course_id,
+          exam.content_id,
+          endExamWithFailure(activeAttempt.attempt_id, message),
         )(dispatch);
       });
   };
@@ -416,9 +398,7 @@ export function startProctoringSoftwareDownload() {
       );
       return;
     }
-    await updateAttemptAfter(
-      exam.course_id, exam.content_id, softwareDownloadAttempt(attemptId),
-    )(dispatch);
+    await updateAttemptAfter(exam.course_id, exam.content_id, softwareDownloadAttempt(attemptId))(dispatch);
   };
 }
 
