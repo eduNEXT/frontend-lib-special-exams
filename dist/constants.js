@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.ONBOARDING_ERRORS = exports.IS_STARTED_STATUS = exports.IS_PROCTORED_STATUS = exports.IS_ONBOARDING_ERROR = exports.IS_INCOMPLETE_STATUS = exports.INCOMPLETE_STATUSES = exports.ExamType = exports.ExamStatus = exports.ExamAction = void 0;
 /* eslint-disable import/prefer-default-export */
-var ExamStatus = Object.freeze({
+const ExamStatus = exports.ExamStatus = Object.freeze({
   ELIGIBLE: 'eligible',
   CREATED: 'created',
   DOWNLOAD_SOFTWARE_CLICKED: 'download_software_clicked',
@@ -24,32 +24,21 @@ var ExamStatus = Object.freeze({
   ONBOARDING_EXPIRED: 'onboarding_expired',
   DECLINED: 'declined'
 });
-exports.ExamStatus = ExamStatus;
-var INCOMPLETE_STATUSES = [ExamStatus.ELIGIBLE, ExamStatus.CREATED, ExamStatus.DOWNLOAD_SOFTWARE_CLICKED, ExamStatus.READY_TO_START, ExamStatus.STARTED, ExamStatus.READY_TO_SUBMIT];
-exports.INCOMPLETE_STATUSES = INCOMPLETE_STATUSES;
-var ONBOARDING_ERRORS = [ExamStatus.ONBOARDING_EXPIRED, ExamStatus.ONBOARDING_FAILED, ExamStatus.ONBOARDING_MISSING, ExamStatus.ONBOARDING_PENDING];
-exports.ONBOARDING_ERRORS = ONBOARDING_ERRORS;
-var IS_STARTED_STATUS = function IS_STARTED_STATUS(status) {
-  return [ExamStatus.STARTED, ExamStatus.READY_TO_SUBMIT].includes(status);
-};
+const INCOMPLETE_STATUSES = exports.INCOMPLETE_STATUSES = [ExamStatus.ELIGIBLE, ExamStatus.CREATED, ExamStatus.DOWNLOAD_SOFTWARE_CLICKED, ExamStatus.READY_TO_START, ExamStatus.STARTED, ExamStatus.READY_TO_SUBMIT];
+const ONBOARDING_ERRORS = exports.ONBOARDING_ERRORS = [ExamStatus.ONBOARDING_EXPIRED, ExamStatus.ONBOARDING_FAILED, ExamStatus.ONBOARDING_MISSING, ExamStatus.ONBOARDING_PENDING];
+const IS_STARTED_STATUS = status => [ExamStatus.STARTED, ExamStatus.READY_TO_SUBMIT].includes(status);
 exports.IS_STARTED_STATUS = IS_STARTED_STATUS;
-var IS_INCOMPLETE_STATUS = function IS_INCOMPLETE_STATUS(status) {
-  return INCOMPLETE_STATUSES.includes(status);
-};
+const IS_INCOMPLETE_STATUS = status => INCOMPLETE_STATUSES.includes(status);
 exports.IS_INCOMPLETE_STATUS = IS_INCOMPLETE_STATUS;
-var IS_ONBOARDING_ERROR = function IS_ONBOARDING_ERROR(status) {
-  return ONBOARDING_ERRORS.includes(status);
-};
+const IS_ONBOARDING_ERROR = status => ONBOARDING_ERRORS.includes(status);
 // if the exam is proctored we expect the software to be monitoring these states
 exports.IS_ONBOARDING_ERROR = IS_ONBOARDING_ERROR;
-var IS_PROCTORED_STATUS = function IS_PROCTORED_STATUS(status) {
-  return IS_STARTED_STATUS(status) || status === ExamStatus.READY_TO_START;
-};
+const IS_PROCTORED_STATUS = status => IS_STARTED_STATUS(status) || status === ExamStatus.READY_TO_START;
 
 // Available actions are taken from
 // https://github.com/edx/edx-proctoring/blob/1444ca40a43869fb4e2731cea4862888c5b5f286/edx_proctoring/views.py#L765
 exports.IS_PROCTORED_STATUS = IS_PROCTORED_STATUS;
-var ExamAction = Object.freeze({
+const ExamAction = exports.ExamAction = Object.freeze({
   START: 'start',
   STOP: 'stop',
   PING: 'ping',
@@ -59,12 +48,10 @@ var ExamAction = Object.freeze({
   CLICK_DOWNLOAD_SOFTWARE: 'click_download_software',
   DECLINE: 'decline'
 });
-exports.ExamAction = ExamAction;
-var ExamType = Object.freeze({
+const ExamType = exports.ExamType = Object.freeze({
   ONBOARDING: 'onboarding',
   PRACTICE: 'practice',
   PROCTORED: 'proctored',
   TIMED: 'timed'
 });
-exports.ExamType = ExamType;
 //# sourceMappingURL=constants.js.map

@@ -3,10 +3,11 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.setReviewPolicy = exports.setProctoringSettings = exports.setIsLoading = exports.setExamState = exports.setExamAccessToken = exports.setApiError = exports.setAllowProctoringOptOut = exports.setActiveAttempt = exports.expireExamAttempt = exports.examSlice = exports["default"] = void 0;
+exports.setReviewPolicy = exports.setProctoringSettings = exports.setIsLoading = exports.setExamState = exports.setExamAccessToken = exports.setApiError = exports.setAllowProctoringOptOut = exports.setActiveAttempt = exports.expireExamAttempt = exports.examSlice = exports.default = void 0;
 var _toolkit = require("@reduxjs/toolkit");
+var _helpers = require("../helpers");
 /* eslint-disable no-param-reassign */
-var examSlice = (0, _toolkit.createSlice)({
+const examSlice = exports.examSlice = (0, _toolkit.createSlice)({
   name: 'exam',
   initialState: {
     isLoading: true,
@@ -23,6 +24,7 @@ var examSlice = (0, _toolkit.createSlice)({
       },
       provider_tech_support_email: '',
       provider_tech_support_phone: '',
+      provider_tech_support_url: '',
       provider_name: '',
       learner_notification_from_email: '',
       integration_specific_email: ''
@@ -73,56 +75,72 @@ var examSlice = (0, _toolkit.createSlice)({
     }
   },
   reducers: {
-    setAllowProctoringOptOut: function setAllowProctoringOptOut(state, _ref) {
-      var payload = _ref.payload;
+    setAllowProctoringOptOut: (state, _ref) => {
+      let {
+        payload
+      } = _ref;
       state.allowProctoringOptOut = payload.allowProctoringOptOut;
     },
-    setIsLoading: function setIsLoading(state, _ref2) {
-      var payload = _ref2.payload;
+    setIsLoading: (state, _ref2) => {
+      let {
+        payload
+      } = _ref2;
       state.isLoading = payload.isLoading;
     },
-    setExamState: function setExamState(state, _ref3) {
-      var payload = _ref3.payload;
+    setExamState: (state, _ref3) => {
+      let {
+        payload
+      } = _ref3;
       state.exam = payload.exam;
-      state.activeAttempt = payload.activeAttempt;
+      state.activeAttempt = (0, _helpers.appendTimerEnd)(payload.activeAttempt);
     },
-    setActiveAttempt: function setActiveAttempt(state, _ref4) {
-      var payload = _ref4.payload;
-      state.activeAttempt = payload.activeAttempt;
+    setActiveAttempt: (state, _ref4) => {
+      let {
+        payload
+      } = _ref4;
+      state.activeAttempt = (0, _helpers.appendTimerEnd)(payload.activeAttempt);
       state.apiErrorMsg = '';
     },
-    setProctoringSettings: function setProctoringSettings(state, _ref5) {
-      var payload = _ref5.payload;
+    setProctoringSettings: (state, _ref5) => {
+      let {
+        payload
+      } = _ref5;
       state.proctoringSettings = payload.proctoringSettings;
     },
-    setExamAccessToken: function setExamAccessToken(state, _ref6) {
-      var payload = _ref6.payload;
+    setExamAccessToken: (state, _ref6) => {
+      let {
+        payload
+      } = _ref6;
       state.examAccessToken = payload.examAccessToken;
     },
-    expireExamAttempt: function expireExamAttempt(state) {
+    expireExamAttempt: state => {
       state.timeIsOver = true;
     },
-    setReviewPolicy: function setReviewPolicy(state, _ref7) {
-      var payload = _ref7.payload;
+    setReviewPolicy: (state, _ref7) => {
+      let {
+        payload
+      } = _ref7;
       state.exam.reviewPolicy = payload.policy;
     },
-    setApiError: function setApiError(state, _ref8) {
-      var payload = _ref8.payload;
+    setApiError: (state, _ref8) => {
+      let {
+        payload
+      } = _ref8;
       state.apiErrorMsg = payload.errorMsg;
     }
   }
 });
-exports.examSlice = examSlice;
-var _examSlice$actions = examSlice.actions,
-  setIsLoading = _examSlice$actions.setIsLoading,
-  setExamState = _examSlice$actions.setExamState,
-  expireExamAttempt = _examSlice$actions.expireExamAttempt,
-  setActiveAttempt = _examSlice$actions.setActiveAttempt,
-  setProctoringSettings = _examSlice$actions.setProctoringSettings,
-  setExamAccessToken = _examSlice$actions.setExamAccessToken,
-  setReviewPolicy = _examSlice$actions.setReviewPolicy,
-  setApiError = _examSlice$actions.setApiError,
-  setAllowProctoringOptOut = _examSlice$actions.setAllowProctoringOptOut;
+const {
+  setIsLoading,
+  setExamState,
+  expireExamAttempt,
+  setActiveAttempt,
+  setProctoringSettings,
+  setExamAccessToken,
+  setReviewPolicy,
+  setApiError,
+  setAllowProctoringOptOut
+} = examSlice.actions;
 exports.setAllowProctoringOptOut = setAllowProctoringOptOut;
 exports.setApiError = setApiError;
 exports.setReviewPolicy = setReviewPolicy;
@@ -132,6 +150,5 @@ exports.setActiveAttempt = setActiveAttempt;
 exports.expireExamAttempt = expireExamAttempt;
 exports.setExamState = setExamState;
 exports.setIsLoading = setIsLoading;
-var _default = examSlice.reducer;
-exports["default"] = _default;
+var _default = exports.default = examSlice.reducer;
 //# sourceMappingURL=slice.js.map

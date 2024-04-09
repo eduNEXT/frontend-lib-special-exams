@@ -3,9 +3,9 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = void 0;
+exports.default = void 0;
 var _i18n = require("@edx/frontend-platform/i18n");
-var messages = (0, _i18n.defineMessages)({
+const messages = (0, _i18n.defineMessages)({
   cannotStartModalTitle: {
     id: 'exam.DownloadProctoringProviderSoftwareModal.title',
     defaultMessage: 'Cannot Start Exam'
@@ -23,6 +23,5 @@ var messages = (0, _i18n.defineMessages)({
     defaultMessage: 'Click "Start Exam" to proceed.'
   }
 });
-var _default = messages;
-exports["default"] = _default;
+var _default = exports.default = messages;
 //# sourceMappingURL=messages.js.map

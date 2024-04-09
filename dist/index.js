@@ -5,43 +5,43 @@ Object.defineProperty(exports, "__esModule", {
 });
 Object.defineProperty(exports, "OuterExamTimer", {
   enumerable: true,
-  get: function get() {
-    return _OuterExamTimer["default"];
+  get: function () {
+    return _OuterExamTimer.default;
   }
 });
 Object.defineProperty(exports, "default", {
   enumerable: true,
-  get: function get() {
-    return _SequenceExamWrapper["default"];
+  get: function () {
+    return _SequenceExamWrapper.default;
   }
 });
-Object.defineProperty(exports, "fetchExamAccess", {
+Object.defineProperty(exports, "reducer", {
   enumerable: true,
-  get: function get() {
-    return _api.fetchExamAccess;
+  get: function () {
+    return _data.reducer;
   }
 });
-Object.defineProperty(exports, "getExamAccess", {
+Object.defineProperty(exports, "useExamAccessToken", {
   enumerable: true,
-  get: function get() {
-    return _api.getExamAccess;
+  get: function () {
+    return _api.useExamAccessToken;
   }
 });
-Object.defineProperty(exports, "isExam", {
+Object.defineProperty(exports, "useFetchExamAccessToken", {
   enumerable: true,
-  get: function get() {
-    return _api.isExam;
+  get: function () {
+    return _api.useFetchExamAccessToken;
   }
 });
-Object.defineProperty(exports, "store", {
+Object.defineProperty(exports, "useIsExam", {
   enumerable: true,
-  get: function get() {
-    return _data.store;
+  get: function () {
+    return _api.useIsExam;
   }
 });
 var _SequenceExamWrapper = _interopRequireDefault(require("./core/SequenceExamWrapper"));
 var _OuterExamTimer = _interopRequireDefault(require("./core/OuterExamTimer"));
 var _api = require("./api");
 var _data = require("./data");
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 //# sourceMappingURL=index.js.map

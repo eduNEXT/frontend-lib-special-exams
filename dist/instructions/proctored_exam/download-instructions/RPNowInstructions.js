@@ -3,15 +3,17 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = void 0;
+exports.default = void 0;
 var _react = _interopRequireDefault(require("react"));
 var _propTypes = _interopRequireDefault(require("prop-types"));
 var _i18n = require("@edx/frontend-platform/i18n");
 var _ExamCode = _interopRequireDefault(require("./ExamCode"));
 var _jsxRuntime = require("react/jsx-runtime");
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-var RPNowInstructions = function RPNowInstructions(_ref) {
-  var code = _ref.code;
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+const RPNowInstructions = _ref => {
+  let {
+    code
+  } = _ref;
   return /*#__PURE__*/(0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
     children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
       className: "h4",
@@ -20,7 +22,7 @@ var RPNowInstructions = function RPNowInstructions(_ref) {
         defaultMessage: "Step 1."
       })
     }), /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
-      children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_ExamCode["default"], {
+      children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_ExamCode.default, {
         code: code
       })
     }), /*#__PURE__*/(0, _jsxRuntime.jsx)("p", {
@@ -60,8 +62,7 @@ var RPNowInstructions = function RPNowInstructions(_ref) {
   });
 };
 RPNowInstructions.propTypes = {
-  code: _propTypes["default"].string.isRequired
+  code: _propTypes.default.string.isRequired
 };
-var _default = RPNowInstructions;
-exports["default"] = _default;
+var _default = exports.default = RPNowInstructions;
 //# sourceMappingURL=RPNowInstructions.js.map

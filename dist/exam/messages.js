@@ -3,9 +3,9 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = void 0;
+exports.default = void 0;
 var _i18n = require("@edx/frontend-platform/i18n");
-var messages = (0, _i18n.defineMessages)({
+const messages = (0, _i18n.defineMessages)({
   apiErrorDefault: {
     id: 'exam.apiError.default',
     defaultMessage: 'A system error has occurred with your exam.'
@@ -19,6 +19,5 @@ var messages = (0, _i18n.defineMessages)({
     defaultMessage: 'You do not have access to proctored exams with your current enrollment.'
   }
 });
-var _default = messages;
-exports["default"] = _default;
+var _default = exports.default = messages;
 //# sourceMappingURL=messages.js.map

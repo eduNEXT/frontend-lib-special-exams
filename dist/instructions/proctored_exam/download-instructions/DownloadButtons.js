@@ -3,18 +3,20 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = void 0;
+exports.default = void 0;
 var _react = _interopRequireDefault(require("react"));
 var _propTypes = _interopRequireDefault(require("prop-types"));
-var _paragon = require("@edx/paragon");
+var _paragon = require("@openedx/paragon");
 var _i18n = require("@edx/frontend-platform/i18n");
 var _jsxRuntime = require("react/jsx-runtime");
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-var DownloadButtons = function DownloadButtons(_ref) {
-  var downloadUrl = _ref.downloadUrl,
-    downloadClicked = _ref.downloadClicked,
-    onDownloadClick = _ref.onDownloadClick,
-    onStartExamClick = _ref.onStartExamClick;
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+const DownloadButtons = _ref => {
+  let {
+    downloadUrl,
+    downloadClicked,
+    onDownloadClick,
+    onStartExamClick
+  } = _ref;
   return /*#__PURE__*/(0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
     children: [downloadUrl && /*#__PURE__*/(0, _jsxRuntime.jsx)(_paragon.Button, {
       "data-testid": "exam.DownloadSoftwareProctoredExamInstructions-start-system-check-button",
@@ -36,11 +38,10 @@ var DownloadButtons = function DownloadButtons(_ref) {
   });
 };
 DownloadButtons.propTypes = {
-  downloadUrl: _propTypes["default"].string.isRequired,
-  downloadClicked: _propTypes["default"].bool.isRequired,
-  onDownloadClick: _propTypes["default"].func.isRequired,
-  onStartExamClick: _propTypes["default"].func.isRequired
+  downloadUrl: _propTypes.default.string.isRequired,
+  downloadClicked: _propTypes.default.bool.isRequired,
+  onDownloadClick: _propTypes.default.func.isRequired,
+  onStartExamClick: _propTypes.default.func.isRequired
 };
-var _default = DownloadButtons;
-exports["default"] = _default;
+var _default = exports.default = DownloadButtons;
 //# sourceMappingURL=DownloadButtons.js.map

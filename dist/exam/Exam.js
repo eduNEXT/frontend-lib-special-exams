@@ -1,67 +1,61 @@
 "use strict";
 
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = void 0;
+exports.default = void 0;
 var _react = _interopRequireWildcard(require("react"));
+var _reactRedux = require("react-redux");
 var _propTypes = _interopRequireDefault(require("prop-types"));
 var _i18n = require("@edx/frontend-platform/i18n");
-var _paragon = require("@edx/paragon");
-var _icons = require("@edx/paragon/icons");
+var _paragon = require("@openedx/paragon");
+var _icons = require("@openedx/paragon/icons");
 var _timer = require("../timer");
 var _instructions = _interopRequireDefault(require("../instructions"));
-var _context = _interopRequireDefault(require("../context"));
 var _ExamAPIError = _interopRequireDefault(require("./ExamAPIError"));
 var _constants = require("../constants");
 var _messages = _interopRequireDefault(require("./messages"));
+var _data = require("../data");
 var _jsxRuntime = require("react/jsx-runtime");
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
-function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; } /* eslint-disable react-hooks/exhaustive-deps */ /**
-                                                                                                                        * Exam component is intended to render exam instructions before and after exam.
-                                                                                                                        * It is also responsible for rendering exam timer block/component during the exam.
-                                                                                                                        * If children do not relate to exam sequence, render them directly.
-                                                                                                                        * @param isTimeLimited - boolean used to identify if we need to process sequence as an exam
-                                                                                                                        * @param children - sequence content
-                                                                                                                        * @returns {JSX.Element}
-                                                                                                                        * @constructor
-                                                                                                                        */
-var Exam = function Exam(_ref) {
-  var isGated = _ref.isGated,
-    isTimeLimited = _ref.isTimeLimited,
-    originalUserIsStaff = _ref.originalUserIsStaff,
-    canAccessProctoredExams = _ref.canAccessProctoredExams,
-    children = _ref.children,
-    intl = _ref.intl;
-  var state = (0, _react.useContext)(_context["default"]);
-  var isLoading = state.isLoading,
-    activeAttempt = state.activeAttempt,
-    showTimer = state.showTimer,
-    stopExam = state.stopExam,
-    exam = state.exam,
-    expireExam = state.expireExam,
-    pollAttempt = state.pollAttempt,
-    apiErrorMsg = state.apiErrorMsg,
-    pingAttempt = state.pingAttempt,
-    getProctoringSettings = state.getProctoringSettings,
-    submitExam = state.submitExam;
-  var _ref2 = exam || {},
-    attempt = _ref2.attempt,
-    examType = _ref2.type,
-    examId = _ref2.id,
-    passedDueDate = _ref2.passed_due_date,
-    hideAfterDue = _ref2.hide_after_due;
-  var _ref3 = attempt || {},
-    attemptStatus = _ref3.attempt_status;
-  var shouldShowMasqueradeAlert = function shouldShowMasqueradeAlert() {
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+/**
+ * Exam component is intended to render exam instructions before and after exam.
+ * It is also responsible for rendering exam timer block/component during the exam.
+ * If children do not relate to exam sequence, render them directly.
+ * @param isTimeLimited - boolean used to identify if we need to process sequence as an exam
+ * @param children - sequence content
+ * @returns {JSX.Element}
+ * @constructor
+ */const Exam = _ref => {
+  let {
+    isGated,
+    isTimeLimited,
+    originalUserIsStaff,
+    canAccessProctoredExams,
+    children,
+    intl
+  } = _ref;
+  const {
+    isLoading,
+    activeAttempt,
+    exam,
+    apiErrorMsg
+  } = (0, _reactRedux.useSelector)(state => state.specialExams);
+  const dispatch = (0, _reactRedux.useDispatch)();
+  const showTimer = !!(activeAttempt && (0, _constants.IS_STARTED_STATUS)(activeAttempt.attempt_status));
+  const {
+    attempt,
+    type: examType,
+    id: examId,
+    passed_due_date: passedDueDate,
+    hide_after_due: hideAfterDue
+  } = exam || {};
+  const {
+    attempt_status: attemptStatus
+  } = attempt || {};
+  const shouldShowMasqueradeAlert = () => {
     // if course staff is masquerading as a specific learner, they should be able
     // to view the exam content regardless of the learner's current state
     if (originalUserIsStaff && isTimeLimited) {
@@ -74,16 +68,13 @@ var Exam = function Exam(_ref) {
     }
     return false;
   };
-  var _useState = (0, _react.useState)(true),
-    _useState2 = _slicedToArray(_useState, 2),
-    hasProctoredExamAccess = _useState2[0],
-    setHasProctoredExamAccess = _useState2[1];
-  var proctoredExamTypes = [_constants.ExamType.ONBOARDING, _constants.ExamType.PRACTICE, _constants.ExamType.PROCTORED];
-  (0, _react.useEffect)(function () {
+  const [hasProctoredExamAccess, setHasProctoredExamAccess] = (0, _react.useState)(true);
+  const proctoredExamTypes = [_constants.ExamType.ONBOARDING, _constants.ExamType.PRACTICE, _constants.ExamType.PROCTORED];
+  (0, _react.useEffect)(() => {
     if (proctoredExamTypes.includes(examType)) {
       // only fetch proctoring settings for a proctored exam
       if (examId) {
-        getProctoringSettings();
+        dispatch((0, _data.getProctoringSettings)());
       }
 
       // Only exclude Timed Exam when restricting access to exams
@@ -92,7 +83,8 @@ var Exam = function Exam(_ref) {
     // this makes sure useEffect gets called only one time after the exam has been fetched
     // we can't leave this empty since initially exam is just an empty object, so
     // API calls above would not get triggered
-  }, [examId]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [examId, dispatch]);
   if (isLoading) {
     return /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
       "data-testid": "spinner",
@@ -109,12 +101,12 @@ var Exam = function Exam(_ref) {
     return /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
       "data-testid": "no-access",
       className: "d-flex justify-content-center align-items-center flex-column",
-      children: intl.formatMessage(_messages["default"].proctoredExamAccessDenied)
+      children: intl.formatMessage(_messages.default.proctoredExamAccessDenied)
     });
   }
 
   // eslint-disable-next-line react/jsx-no-useless-fragment
-  var sequenceContent = /*#__PURE__*/(0, _jsxRuntime.jsx)(_jsxRuntime.Fragment, {
+  const sequenceContent = /*#__PURE__*/(0, _jsxRuntime.jsx)(_jsxRuntime.Fragment, {
     children: children
   });
   return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
@@ -127,31 +119,23 @@ var Exam = function Exam(_ref) {
         id: "exam.hiddenContent",
         defaultMessage: "This exam is hidden from the learner."
       })
-    }), showTimer && /*#__PURE__*/(0, _jsxRuntime.jsx)(_timer.ExamTimerBlock, {
-      attempt: activeAttempt,
-      stopExamAttempt: stopExam,
-      submitExam: submitExam,
-      expireExamAttempt: expireExam,
-      pollExamAttempt: pollAttempt,
-      pingAttempt: pingAttempt
-    }),
+    }), showTimer && /*#__PURE__*/(0, _jsxRuntime.jsx)(_timer.ExamTimerBlock, {}),
     // show the error message only if you are in the exam sequence
-    isTimeLimited && apiErrorMsg && /*#__PURE__*/(0, _jsxRuntime.jsx)(_ExamAPIError["default"], {}), isTimeLimited && !originalUserIsStaff && !isGated ? /*#__PURE__*/(0, _jsxRuntime.jsx)(_instructions["default"], {
+    isTimeLimited && apiErrorMsg && /*#__PURE__*/(0, _jsxRuntime.jsx)(_ExamAPIError.default, {}), isTimeLimited && !originalUserIsStaff && !isGated ? /*#__PURE__*/(0, _jsxRuntime.jsx)(_instructions.default, {
       children: sequenceContent
     }) : sequenceContent]
   });
 };
 Exam.propTypes = {
-  isTimeLimited: _propTypes["default"].bool.isRequired,
-  isGated: _propTypes["default"].bool.isRequired,
-  originalUserIsStaff: _propTypes["default"].bool.isRequired,
-  canAccessProctoredExams: _propTypes["default"].bool,
-  children: _propTypes["default"].element.isRequired,
+  isTimeLimited: _propTypes.default.bool.isRequired,
+  isGated: _propTypes.default.bool.isRequired,
+  originalUserIsStaff: _propTypes.default.bool.isRequired,
+  canAccessProctoredExams: _propTypes.default.bool,
+  children: _propTypes.default.element.isRequired,
   intl: _i18n.intlShape.isRequired
 };
 Exam.defaultProps = {
   canAccessProctoredExams: true
 };
-var _default = (0, _i18n.injectIntl)(Exam);
-exports["default"] = _default;
+var _default = exports.default = (0, _i18n.injectIntl)(Exam);
 //# sourceMappingURL=Exam.js.map

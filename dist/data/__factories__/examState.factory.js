@@ -6,7 +6,7 @@ require("./proctoringSettings.factory");
 require("./examAccessToken.factory");
 // eslint-disable-line import/no-extraneous-dependencies
 
-_rosie.Factory.define('examState').attr('proctoringSettings', _rosie.Factory.build('proctoringSettings')).attr('exam', _rosie.Factory.build('exam')).attr('examAccessToken', _rosie.Factory.build('examAccessToken')).attrs({
+_rosie.Factory.define('specialExams').attr('proctoringSettings', _rosie.Factory.build('proctoringSettings')).attr('exam', _rosie.Factory.build('exam')).attr('examAccessToken', _rosie.Factory.build('examAccessToken')).attrs({
   isLoading: false,
   activeAttempt: null,
   verification: {

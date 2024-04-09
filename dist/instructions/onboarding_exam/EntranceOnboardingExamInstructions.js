@@ -1,26 +1,26 @@
 "use strict";
 
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = void 0;
-var _react = _interopRequireWildcard(require("react"));
+exports.default = void 0;
+var _react = _interopRequireDefault(require("react"));
+var _reactRedux = require("react-redux");
 var _i18n = require("@edx/frontend-platform/i18n");
-var _paragon = require("@edx/paragon");
-var _context = _interopRequireDefault(require("../../context"));
+var _paragon = require("@openedx/paragon");
+var _data = require("../../data");
 var _jsxRuntime = require("react/jsx-runtime");
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-var EntranceOnboardingExamInstructions = function EntranceOnboardingExamInstructions() {
-  var state = (0, _react.useContext)(_context["default"]);
-  var createProctoredExamAttempt = state.createProctoredExamAttempt,
-    proctoringSettings = state.proctoringSettings;
-  var _ref = proctoringSettings || {},
-    providerName = _ref.provider_name,
-    learnerNotificationFromEmail = _ref.learner_notification_from_email,
-    integrationSpecificEmail = _ref.integration_specific_email;
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+const EntranceOnboardingExamInstructions = () => {
+  const {
+    proctoringSettings
+  } = (0, _reactRedux.useSelector)(state => state.specialExams);
+  const dispatch = (0, _reactRedux.useDispatch)();
+  const {
+    provider_name: providerName,
+    learner_notification_from_email: learnerNotificationFromEmail,
+    integration_specific_email: integrationSpecificEmail
+  } = proctoringSettings || {};
   return /*#__PURE__*/(0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
     children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
       className: "h3",
@@ -56,7 +56,7 @@ var EntranceOnboardingExamInstructions = function EntranceOnboardingExamInstruct
         id: "exam.EntranceOnboardingExamInstructions.text2",
         defaultMessage: 'Proctoring for this course is provided via {providerName}. ' + 'Onboarding review, including identity verification, can take 2+ business days.',
         values: {
-          providerName: providerName
+          providerName
         }
       })
     }), learnerNotificationFromEmail && /*#__PURE__*/(0, _jsxRuntime.jsxs)("p", {
@@ -88,7 +88,7 @@ var EntranceOnboardingExamInstructions = function EntranceOnboardingExamInstruct
       children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_paragon.Button, {
         "data-testid": "start-exam-button",
         variant: "primary",
-        onClick: createProctoredExamAttempt,
+        onClick: () => dispatch((0, _data.createProctoredExamAttempt)()),
         children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
           id: "exam.EntranceOnboardingExamInstructions.startExamButtonText",
           defaultMessage: "Continue to onboarding"
@@ -103,6 +103,5 @@ var EntranceOnboardingExamInstructions = function EntranceOnboardingExamInstruct
     })]
   });
 };
-var _default = EntranceOnboardingExamInstructions;
-exports["default"] = _default;
+var _default = exports.default = EntranceOnboardingExamInstructions;
 //# sourceMappingURL=EntranceOnboardingExamInstructions.js.map

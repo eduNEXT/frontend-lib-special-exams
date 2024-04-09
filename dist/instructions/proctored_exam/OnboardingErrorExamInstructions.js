@@ -1,29 +1,31 @@
 "use strict";
 
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = void 0;
-var _react = _interopRequireWildcard(require("react"));
+exports.default = void 0;
+var _react = _interopRequireDefault(require("react"));
+var _reactRedux = require("react-redux");
 var _i18n = require("@edx/frontend-platform/i18n");
-var _paragon = require("@edx/paragon");
-var _context = _interopRequireDefault(require("../../context"));
+var _paragon = require("@openedx/paragon");
 var _constants = require("../../constants");
 var _Footer = _interopRequireDefault(require("./Footer"));
 var _jsxRuntime = require("react/jsx-runtime");
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-var OnboardingErrorProctoredExamInstructions = function OnboardingErrorProctoredExamInstructions() {
-  var state = (0, _react.useContext)(_context["default"]);
-  var exam = state.exam,
-    proctoringSettings = state.proctoringSettings;
-  var attempt = exam.attempt,
-    onboardingLink = exam.onboarding_link;
-  var integrationSpecificEmail = proctoringSettings.integration_specific_email,
-    providerName = proctoringSettings.provider_name;
-  var renderBody = function renderBody() {
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+const OnboardingErrorProctoredExamInstructions = () => {
+  const {
+    exam,
+    proctoringSettings
+  } = (0, _reactRedux.useSelector)(state => state.specialExams);
+  const {
+    attempt,
+    onboarding_link: onboardingLink
+  } = exam;
+  const {
+    integration_specific_email: integrationSpecificEmail,
+    provider_name: providerName
+  } = proctoringSettings;
+  const renderBody = () => {
     switch (attempt.attempt_status) {
       case _constants.ExamStatus.ONBOARDING_MISSING:
       case _constants.ExamStatus.ONBOARDING_EXPIRED:
@@ -85,16 +87,15 @@ var OnboardingErrorProctoredExamInstructions = function OnboardingErrorProctored
           id: "exam.OnboardingErrorProctoredExamInstructions.providerInfo",
           defaultMessage: 'Proctoring for your exam is provided via {providerName}. ' + 'If you have questions about the status of your onboarding exam, contact ',
           values: {
-            providerName: providerName
+            providerName
           }
         }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_paragon.MailtoLink, {
           to: integrationSpecificEmail,
           children: integrationSpecificEmail
         })]
       })]
-    }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_Footer["default"], {})]
+    }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_Footer.default, {})]
   });
 };
-var _default = OnboardingErrorProctoredExamInstructions;
-exports["default"] = _default;
+var _default = exports.default = OnboardingErrorProctoredExamInstructions;
 //# sourceMappingURL=OnboardingErrorExamInstructions.js.map

@@ -3,17 +3,19 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = void 0;
+exports.default = void 0;
 var _react = _interopRequireDefault(require("react"));
 var _propTypes = _interopRequireDefault(require("prop-types"));
 var _i18n = require("@edx/frontend-platform/i18n");
 var _SkipProctoredExamButton = _interopRequireDefault(require("../SkipProctoredExamButton"));
 var _jsxRuntime = require("react/jsx-runtime");
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-var PendingPrerequisitesProctoredExamInstructions = function PendingPrerequisitesProctoredExamInstructions(_ref) {
-  var allowProctoringOptOut = _ref.allowProctoringOptOut,
-    prerequisites = _ref.prerequisites,
-    skipProctoredExam = _ref.skipProctoredExam;
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+const PendingPrerequisitesProctoredExamInstructions = _ref => {
+  let {
+    allowProctoringOptOut,
+    prerequisites,
+    skipProctoredExam
+  } = _ref;
   return /*#__PURE__*/(0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
     children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("p", {
       className: "pb-2",
@@ -39,29 +41,26 @@ var PendingPrerequisitesProctoredExamInstructions = function PendingPrerequisite
       style: {
         listStyleType: 'disc'
       },
-      children: prerequisites.map(function (item, index) {
-        return /*#__PURE__*/(0, _jsxRuntime.jsx)("li", {
-          children: item.jumpto_url ? /*#__PURE__*/(0, _jsxRuntime.jsx)("a", {
-            href: item.jumpto_url,
-            children: item.display_name
-          }) : item.display_name
-        }, "".concat(index.toString()));
-      })
+      children: prerequisites.map((item, index) => /*#__PURE__*/(0, _jsxRuntime.jsx)("li", {
+        children: item.jumpto_url ? /*#__PURE__*/(0, _jsxRuntime.jsx)("a", {
+          href: item.jumpto_url,
+          children: item.display_name
+        }) : item.display_name
+      }, `${index.toString()}`))
     }), /*#__PURE__*/(0, _jsxRuntime.jsx)("p", {
       children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
         id: "exam.PendingPrerequisitesProctoredExamInstructions.text5",
         defaultMessage: 'You can take this exam with proctoring only ' + 'when all prerequisites-instructions have been successfully completed.'
       })
-    }), allowProctoringOptOut && /*#__PURE__*/(0, _jsxRuntime.jsx)(_SkipProctoredExamButton["default"], {
+    }), allowProctoringOptOut && /*#__PURE__*/(0, _jsxRuntime.jsx)(_SkipProctoredExamButton.default, {
       handleClick: skipProctoredExam
     })]
   });
 };
 PendingPrerequisitesProctoredExamInstructions.propTypes = {
-  allowProctoringOptOut: _propTypes["default"].bool.isRequired,
-  prerequisites: _propTypes["default"].arrayOf(_propTypes["default"].shape({})).isRequired,
-  skipProctoredExam: _propTypes["default"].func.isRequired
+  allowProctoringOptOut: _propTypes.default.bool.isRequired,
+  prerequisites: _propTypes.default.arrayOf(_propTypes.default.shape({})).isRequired,
+  skipProctoredExam: _propTypes.default.func.isRequired
 };
-var _default = PendingPrerequisitesProctoredExamInstructions;
-exports["default"] = _default;
+var _default = exports.default = PendingPrerequisitesProctoredExamInstructions;
 //# sourceMappingURL=Pending.js.map

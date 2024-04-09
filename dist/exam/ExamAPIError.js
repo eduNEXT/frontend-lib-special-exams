@@ -1,29 +1,30 @@
 "use strict";
 
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = void 0;
-var _react = _interopRequireWildcard(require("react"));
+exports.default = void 0;
+var _react = _interopRequireDefault(require("react"));
+var _reactRedux = require("react-redux");
 var _frontendPlatform = require("@edx/frontend-platform");
-var _paragon = require("@edx/paragon");
-var _icons = require("@edx/paragon/icons");
+var _paragon = require("@openedx/paragon");
+var _icons = require("@openedx/paragon/icons");
 var _i18n = require("@edx/frontend-platform/i18n");
-var _context = _interopRequireDefault(require("../context"));
 var _messages = _interopRequireDefault(require("./messages"));
 var _jsxRuntime = require("react/jsx-runtime");
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-var ExamAPIError = function ExamAPIError(_ref) {
-  var intl = _ref.intl;
-  var state = (0, _react.useContext)(_context["default"]);
-  var _getConfig = (0, _frontendPlatform.getConfig)(),
-    SITE_NAME = _getConfig.SITE_NAME,
-    SUPPORT_URL = _getConfig.SUPPORT_URL;
-  var apiErrorMsg = state.apiErrorMsg;
-  var shouldShowApiErrorMsg = !!apiErrorMsg && !apiErrorMsg.includes('<');
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+const ExamAPIError = _ref => {
+  let {
+    intl
+  } = _ref;
+  const {
+    SITE_NAME,
+    SUPPORT_URL
+  } = (0, _frontendPlatform.getConfig)();
+  const {
+    apiErrorMsg
+  } = (0, _reactRedux.useSelector)(state => state.specialExams);
+  const shouldShowApiErrorMsg = !!apiErrorMsg && !apiErrorMsg.includes('<');
   return /*#__PURE__*/(0, _jsxRuntime.jsxs)(_paragon.Alert, {
     variant: "danger",
     "data-testid": "exam-api-error-component",
@@ -32,7 +33,7 @@ var ExamAPIError = function ExamAPIError(_ref) {
       className: "alert-icon"
     }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_paragon.Alert.Heading, {
       "data-testid": "error-details",
-      children: shouldShowApiErrorMsg ? apiErrorMsg : intl.formatMessage(_messages["default"].apiErrorDefault)
+      children: shouldShowApiErrorMsg ? apiErrorMsg : intl.formatMessage(_messages.default.apiErrorDefault)
     }), /*#__PURE__*/(0, _jsxRuntime.jsx)("p", {
       children: SITE_NAME && SUPPORT_URL ? /*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
         id: "exam.apiError.supportText.withLink",
@@ -45,13 +46,12 @@ var ExamAPIError = function ExamAPIError(_ref) {
             children: [SITE_NAME, " Support"]
           })
         }
-      }) : intl.formatMessage(_messages["default"].supportTextWithoutLink)
+      }) : intl.formatMessage(_messages.default.supportTextWithoutLink)
     })]
   });
 };
 ExamAPIError.propTypes = {
   intl: _i18n.intlShape.isRequired
 };
-var _default = (0, _i18n.injectIntl)(ExamAPIError);
-exports["default"] = _default;
+var _default = exports.default = (0, _i18n.injectIntl)(ExamAPIError);
 //# sourceMappingURL=ExamAPIError.js.map

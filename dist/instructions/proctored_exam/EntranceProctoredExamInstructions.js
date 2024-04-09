@@ -1,30 +1,33 @@
 "use strict";
 
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = void 0;
-var _react = _interopRequireWildcard(require("react"));
+exports.default = void 0;
+var _react = _interopRequireDefault(require("react"));
+var _reactRedux = require("react-redux");
 var _propTypes = _interopRequireDefault(require("prop-types"));
 var _i18n = require("@edx/frontend-platform/i18n");
-var _paragon = require("@edx/paragon");
-var _context = _interopRequireDefault(require("../../context"));
+var _paragon = require("@openedx/paragon");
+var _data = require("../../data");
 var _SkipProctoredExamButton = _interopRequireDefault(require("./SkipProctoredExamButton"));
 var _jsxRuntime = require("react/jsx-runtime");
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-var EntranceProctoredExamInstructions = function EntranceProctoredExamInstructions(_ref) {
-  var skipProctoredExam = _ref.skipProctoredExam;
-  var state = (0, _react.useContext)(_context["default"]);
-  var exam = state.exam,
-    createProctoredExamAttempt = state.createProctoredExamAttempt,
-    allowProctoringOptOut = state.allowProctoringOptOut;
-  var _ref2 = exam || {},
-    attempt = _ref2.attempt;
-  var _attempt$total_time = attempt.total_time,
-    totalTime = _attempt$total_time === void 0 ? 0 : _attempt$total_time;
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+const EntranceProctoredExamInstructions = _ref => {
+  let {
+    skipProctoredExam
+  } = _ref;
+  const {
+    exam,
+    allowProctoringOptOut
+  } = (0, _reactRedux.useSelector)(state => state.specialExams);
+  const dispatch = (0, _reactRedux.useDispatch)();
+  const {
+    attempt
+  } = exam || {};
+  const {
+    total_time: totalTime = 0
+  } = attempt;
   return /*#__PURE__*/(0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
     children: [attempt.attempt_ready_to_resume ? /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
       children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
@@ -39,7 +42,7 @@ var EntranceProctoredExamInstructions = function EntranceProctoredExamInstructio
           id: "exam.ReadyToResumeProctoredExamInstructions.text",
           defaultMessage: "You will have {totalTime} to complete your exam.",
           values: {
-            totalTime: totalTime
+            totalTime
           }
         })
       })]
@@ -66,20 +69,19 @@ var EntranceProctoredExamInstructions = function EntranceProctoredExamInstructio
       children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_paragon.Button, {
         "data-testid": "start-exam-button",
         variant: "primary",
-        onClick: createProctoredExamAttempt,
+        onClick: () => dispatch((0, _data.createProctoredExamAttempt)()),
         children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
           id: "exam.startExamInstructions.startExamButtonText",
           defaultMessage: "Continue to my proctored exam."
         })
       })
-    }), allowProctoringOptOut && /*#__PURE__*/(0, _jsxRuntime.jsx)(_SkipProctoredExamButton["default"], {
+    }), allowProctoringOptOut && /*#__PURE__*/(0, _jsxRuntime.jsx)(_SkipProctoredExamButton.default, {
       handleClick: skipProctoredExam
     })]
   });
 };
 EntranceProctoredExamInstructions.propTypes = {
-  skipProctoredExam: _propTypes["default"].func.isRequired
+  skipProctoredExam: _propTypes.default.func.isRequired
 };
-var _default = EntranceProctoredExamInstructions;
-exports["default"] = _default;
+var _default = exports.default = EntranceProctoredExamInstructions;
 //# sourceMappingURL=EntranceProctoredExamInstructions.js.map
