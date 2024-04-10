@@ -1,6 +1,6 @@
 {
-  "name": "@edx/frontend-lib-special-exams",
-  "version": "2.23.2-alpha.1",
+  "name": "@edunext/frontend-lib-special-exams",
+  "version": "2.28.0-alpha.1",
   "description": "Special exams lib",
   "main": "dist/index.js",
   "release": {
@@ -66,9 +66,9 @@
     "redux": "^4.0.5"
   },
   "devDependencies": {
-    "@edx/frontend-build": "12.8.16",
-    "@edx/frontend-platform": "5.0.0",
-    "@edx/paragon": "20.44.0",
+    "@edx/frontend-build": "github:edunext/frontend-build#ednx-release/css-variables-13.0.1",
+    "@edx/frontend-platform": "npm:@edunext/frontend-platform@5.5.4-alpha.4",
+    "@edx/paragon": "npm:@openedx/paragon@22.0.0-alpha.25",
     "@edx/reactifex": "^2.1.1",
     "@reduxjs/toolkit": "^1.5.1",
     "@testing-library/dom": "7.16.3",
