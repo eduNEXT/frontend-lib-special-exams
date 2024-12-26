@@ -54,8 +54,8 @@
     "eventemitter3": "^4.0.7"
   },
   "peerDependencies": {
-    "@edx/frontend-platform": "^7.0.0 || ^8.0.0",
-    "@openedx/paragon": "^22.0.0",
+    "@edx/frontend-platform": "github:edunext/frontend-platform#edunext/css-variables-8.1.2",
+    "@openedx/paragon": "23.0.0-alpha.7",
     "@reduxjs/toolkit": "^1.5.1",
     "prop-types": "^15.7.2",
     "react": "^16.14.0 || ^17.0.0",
@@ -66,10 +66,10 @@
     "redux": "^4.0.5"
   },
   "devDependencies": {
-    "@edx/frontend-platform": "8.0.0",
+    "@edx/frontend-platform": "github:edunext/frontend-platform#edunext/css-variables-8.1.2",
     "@edx/reactifex": "^2.1.1",
     "@openedx/frontend-build": "14.0.3",
-    "@openedx/paragon": "^22.2.0",
+    "@openedx/paragon": "23.0.0-alpha.7",
     "@reduxjs/toolkit": "^1.5.1",
     "@testing-library/dom": "7.16.3",
     "@testing-library/jest-dom": "5.10.1",
