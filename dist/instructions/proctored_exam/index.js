@@ -80,5 +80,5 @@ var _ReadyToStartProctoredExamInstructions = _interopRequireDefault(require("./R
 var _prerequisitesInstructions = _interopRequireDefault(require("./prerequisites-instructions"));
 var _SkipProctoredExamInstruction = _interopRequireDefault(require("./SkipProctoredExamInstruction"));
 var _OnboardingErrorExamInstructions = _interopRequireDefault(require("./OnboardingErrorExamInstructions"));
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
 //# sourceMappingURL=index.js.map

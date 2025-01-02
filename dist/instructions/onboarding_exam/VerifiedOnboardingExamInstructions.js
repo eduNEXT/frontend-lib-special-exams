@@ -9,7 +9,7 @@ var _reactRedux = require("react-redux");
 var _i18n = require("@edx/frontend-platform/i18n");
 var _paragon = require("@openedx/paragon");
 var _jsxRuntime = require("react/jsx-runtime");
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
 var VerifiedOnboardingExamInstructions = function VerifiedOnboardingExamInstructions() {
   var _useSelector = (0, _reactRedux.useSelector)(function (state) {
       return state.specialExams;

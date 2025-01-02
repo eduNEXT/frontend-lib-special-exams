@@ -24,5 +24,5 @@ Object.defineProperty(exports, "SubmittedPracticeExamInstructions", {
 var _EntrancePracticeExamInstructions = _interopRequireDefault(require("./EntrancePracticeExamInstructions"));
 var _ErrorPracticeExamInstructions = _interopRequireDefault(require("./ErrorPracticeExamInstructions"));
 var _SubmittedPracticeExamInstructions = _interopRequireDefault(require("./SubmittedPracticeExamInstructions"));
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
 //# sourceMappingURL=index.js.map

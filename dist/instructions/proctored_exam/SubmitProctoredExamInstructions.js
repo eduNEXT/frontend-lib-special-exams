@@ -12,7 +12,7 @@ var _paragon = require("@openedx/paragon");
 var _constants = require("../../constants");
 var _data = require("../../data");
 var _jsxRuntime = require("react/jsx-runtime");
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
 var SubmitProctoredExamInstructions = function SubmitProctoredExamInstructions() {
   var _useSelector = (0, _reactRedux.useSelector)(function (state) {
       return state.specialExams;

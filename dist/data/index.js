@@ -126,5 +126,5 @@ Object.defineProperty(exports, "submitExam", {
 var _thunks = require("./thunks");
 var _slice = _interopRequireDefault(require("./slice"));
 var _emitter = _interopRequireDefault(require("./emitter"));
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
 //# sourceMappingURL=index.js.map

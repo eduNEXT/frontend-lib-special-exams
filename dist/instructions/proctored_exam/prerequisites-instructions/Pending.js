@@ -9,7 +9,7 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 var _i18n = require("@edx/frontend-platform/i18n");
 var _SkipProctoredExamButton = _interopRequireDefault(require("../SkipProctoredExamButton"));
 var _jsxRuntime = require("react/jsx-runtime");
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
 var PendingPrerequisitesProctoredExamInstructions = function PendingPrerequisitesProctoredExamInstructions(_ref) {
   var allowProctoringOptOut = _ref.allowProctoringOptOut,
     prerequisites = _ref.prerequisites,

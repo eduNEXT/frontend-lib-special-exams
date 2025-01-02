@@ -14,7 +14,7 @@ var _practice_exam = require("./practice_exam");
 var _timed_exam = require("./timed_exam");
 var _Footer = _interopRequireDefault(require("./proctored_exam/Footer"));
 var _jsxRuntime = require("react/jsx-runtime");
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
 var EntranceExamInstructions = function EntranceExamInstructions(_ref) {
   var examType = _ref.examType,
     skipProctoredExam = _ref.skipProctoredExam;

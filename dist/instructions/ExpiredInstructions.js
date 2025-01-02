@@ -8,7 +8,7 @@ var _react = _interopRequireDefault(require("react"));
 var _i18n = require("@edx/frontend-platform/i18n");
 var _paragon = require("@openedx/paragon");
 var _jsxRuntime = require("react/jsx-runtime");
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
 var ExpiredExamInstructions = function ExpiredExamInstructions() {
   return /*#__PURE__*/(0, _jsxRuntime.jsxs)(_paragon.Container, {
     className: "border py-5 mb-4 bg-warning-100",

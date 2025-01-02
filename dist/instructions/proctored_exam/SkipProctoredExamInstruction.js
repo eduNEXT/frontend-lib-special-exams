@@ -12,7 +12,7 @@ var _paragon = require("@openedx/paragon");
 var _Footer = _interopRequireDefault(require("./Footer"));
 var _data = require("../../data");
 var _jsxRuntime = require("react/jsx-runtime");
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
 var SkipProctoredExamInstruction = function SkipProctoredExamInstruction(_ref) {
   var cancelSkipProctoredExam = _ref.cancelSkipProctoredExam;
   var dispatch = (0, _reactRedux.useDispatch)();

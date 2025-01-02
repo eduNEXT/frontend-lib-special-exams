@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.pingApplication = pingApplication;
 exports.workerPromiseForEventNames = workerPromiseForEventNames;
 var _constants = _interopRequireDefault(require("./constants"));
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
 function createWorker(url) {
   var blob = new Blob(["importScripts('".concat(url, "');")], {
     type: 'application/javascript'
@@ -26,16 +26,16 @@ function workerPromiseForEventNames(eventNames, workerUrl) {
   return function (timeout, attemptExternalId) {
     var proctoringBackendWorker = createWorker(workerUrl);
     return new Promise(function (resolve, reject) {
-      var responseHandler = function responseHandler(e) {
+      var _responseHandler = function responseHandler(e) {
         if (e.data.type === eventNames.successEventName) {
-          proctoringBackendWorker.removeEventListener('message', responseHandler);
+          proctoringBackendWorker.removeEventListener('message', _responseHandler);
           proctoringBackendWorker.terminate();
           resolve();
         } else {
           reject(e.data.error);
         }
       };
-      proctoringBackendWorker.addEventListener('message', responseHandler);
+      proctoringBackendWorker.addEventListener('message', _responseHandler);
       proctoringBackendWorker.postMessage({
         type: eventNames.promptEventName,
         timeout: timeout,

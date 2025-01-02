@@ -13,7 +13,7 @@ var _onboarding_exam = require("./onboarding_exam");
 var _proctored_exam = require("./proctored_exam");
 var _Footer = _interopRequireDefault(require("./proctored_exam/Footer"));
 var _jsxRuntime = require("react/jsx-runtime");
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
 var ErrorExamInstructions = function ErrorExamInstructions(_ref) {
   var examType = _ref.examType;
   var renderInstructions = function renderInstructions() {

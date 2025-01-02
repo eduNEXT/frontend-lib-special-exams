@@ -10,7 +10,7 @@ var _i18n = require("@edx/frontend-platform/i18n");
 var _frontendPlatform = require("@edx/frontend-platform");
 var _SkipProctoredExamButton = _interopRequireDefault(require("../SkipProctoredExamButton"));
 var _jsxRuntime = require("react/jsx-runtime");
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
 var FailedPrerequisitesProctoredExamInstructions = function FailedPrerequisitesProctoredExamInstructions(props) {
   var allowProctoringOptOut = props.allowProctoringOptOut,
     prerequisites = props.prerequisites,

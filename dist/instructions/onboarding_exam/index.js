@@ -38,5 +38,5 @@ var _RejectedOnboardingExamInstructions = _interopRequireDefault(require("./Reje
 var _ErrorOnboardingExamInstructions = _interopRequireDefault(require("./ErrorOnboardingExamInstructions"));
 var _SubmittedOnboardingExamInstructions = _interopRequireDefault(require("./SubmittedOnboardingExamInstructions"));
 var _VerifiedOnboardingExamInstructions = _interopRequireDefault(require("./VerifiedOnboardingExamInstructions"));
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
 //# sourceMappingURL=index.js.map

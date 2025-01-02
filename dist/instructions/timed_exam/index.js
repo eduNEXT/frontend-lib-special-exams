@@ -31,5 +31,5 @@ var _StartTimedExamInstructions = _interopRequireDefault(require("./StartTimedEx
 var _SubmitTimedExamInstructions = _interopRequireDefault(require("./SubmitTimedExamInstructions"));
 var _SubmittedTimedExamInstructions = _interopRequireDefault(require("./SubmittedTimedExamInstructions"));
 var _TimedExamFooter = _interopRequireDefault(require("./TimedExamFooter"));
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
 //# sourceMappingURL=index.js.map
