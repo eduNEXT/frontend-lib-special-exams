@@ -1,5 +1,5 @@
 {
-  "name": "@edx/frontend-lib-special-exams",
+  "name": "@edunext/frontend-lib-special-exams",
   "version": "3.1.13-alpha.1",
   "description": "Special exams lib",
   "main": "dist/index.js",
